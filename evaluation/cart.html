@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href=".\index.css">
+    <style>
+        .cartheader{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0% 3%;
+            background: linear-gradient(to right, #00c6ff, #0072ff)
+        }
+        .pi{
+            width: 30px;
+        }
+        #footer{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0% 3%;
+            margin-top: 10%;
+            background: linear-gradient(to right, #00c6ff, #0072ff);
+
+        }
+        *{
+            font-weight: 700;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="cartheader">
+        <h2>Cart Page</h2>
+        <div>
+            <a href="product.html">
+                <img src="products.png" alt="" class="pi">
+            </a>
+        </div>
+    </div>
+    <div id="product-container"></div>
+    <footer>
+        <div id="footer">
+            <h3>Total_Amount :</h3>
+            <h3><span id="money">0</span></h3>
+        </div>
+    </footer>
+
+</body>
+<script>
+    let cartList = document.getElementById("product-container")
+    const cartItem = JSON.parse(localStorage.getItem("cartItem")) || []
+    if (!Array.isArray(cartItem)) {
+        cartItem = []
+    }
+    function cartcheck(){
+    if (cartItem.length) {
+        displayCartItem(cartItem);
+    }
+    else {
+        cartList.innerHTML = `<div><h2>Your Cart is Empty</h2>
+        <img src="https://th.bing.com/th?q=Empty+Cart+Animation&w=120&h=120&c=1&rs=1&qlt=90&cb=1&dpr=1.3&pid=InlineBlock&mkt=en-IN&cc=IN&setlang=en&adlt=moderate&t=1&mw=247"></div>`
+        
+
+    }
+}
+
+    function displayCartItem(products) {
+        cartList.innerHTML = ""
+        let money=document.getElementById("money")
+        cartItem.forEach((product, index) => {
+            const cartCard = `
+              <div class="product-card" >
+                  <img src="${product.images[0] || product.images[1]}" alt="" class="productImage">
+                  <h2>${product.title}</h2>
+                  <p>${product.description}</p>
+                  <p>Price: $${product.price} <s>$${product.strikePrice}</s></p>
+                  <p>Available Quantity: ${product.quantity}</p>
+                  <p>Category: ${product.category}</p>
+                  
+                  <button class="buttonem" id="buttonem" onclick="removeItem(${index})">Remove Item</button>
+              </div>
+          `;
+            cartList.innerHTML += cartCard
+        
+            
+
+        })
+
+    } let money=document.getElementById("money")
+    money.innerHTML = `$${(Math.round(cartItem.reduce((acc, item) => acc + item.price, 0) * 100) / 100).toFixed(2)}`;
+
+
+
+    function removeItem(index) {
+        cartItem.splice(index, 1)
+        localStorage.setItem("cartItem", JSON.stringify(cartItem))
+        cartcheck()
+        money.innerHTML = `$${(Math.round(cartItem.reduce((acc, item) => acc + item.price, 0) * 100) / 100).toFixed(2)}`;
+
+    }
+    
+   cartcheck()
+    console.log(money)
+    
+
+</script>
+
+</html>

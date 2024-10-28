@@ -1,0 +1,184 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+   
+}
+*{
+  font-weight: 800;
+}
+#sort-options>select{
+  border: 2px solid black;
+  
+  padding: 8px;
+  font-weight: 800;
+  
+}
+.buttonem{
+    background: linear-gradient(to right, #00c6ff, #0072ff);
+  height: 3rem;
+  font-weight: 1000;
+  font-size: 1rem;
+  width: 60%;
+}
+
+header {
+    background-color: #f4f4f4;
+    padding: 20px;
+    text-align: center;
+    background: linear-gradient(to right, #00c6ff, #0072ff)
+    
+    
+}
+
+#cart {
+    float:right;
+}
+
+#filters {
+    margin: 40px 0;
+    
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    font-weight: 800;
+    
+    
+    
+   
+}
+
+#product-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.product-card {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 10px;
+    padding: 10px;
+    width: 300px;
+   
+
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    justify-content: space-around;
+
+
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    border-radius: 20px;
+}
+
+
+
+
+
+
+
+button {
+    margin-top: 10px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+#product-detail-container {
+    padding: 20px;
+}
+input,select,#filter-button{
+  display: block;
+}
+#filter-button{
+  border-radius: 25%;
+ 
+}
+
+
+/* Login page css */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9; /* Light background color */
+}
+
+#auth-container {
+    width: 400px;
+    margin: 100px auto;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+     /* White background for the auth container */
+    background: linear-gradient(to right, #00c6ff, #0072ff)
+}
+
+.loginh2{
+    text-align: center;
+    color: #333; /* Dark gray for headings */
+}
+
+#signup-email,#signup-password,#login-email,#login-password {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc; /* Light gray border */
+    border-radius: 5px;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+input:focus {
+    border-color: #4a90e2; /* Blue border on focus */
+    outline: none;
+}
+
+.login{
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background: linear-gradient(to right, #ff7e5f, #feb47b);
+
+
+
+
+
+ /* Lighter blue */
+    color:black; /* White text */
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-weight: 700;
+}
+
+.login:hover {
+    background-color: #357ABD; /* Darker shade of blue on hover */
+}
+
+#signup-form, #login-form {
+    margin-bottom: 20px; /* Space between forms */
+}
+
+
+/* Css for cart */
+
+#cart-container {
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9; /* Light gray background for the cart */
+}
+.productImage{
+    max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  
+    
+}

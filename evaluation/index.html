@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href=".\index.css">
+</head>
+<body>
+    <div id="auth-container">
+        <div id="signup-form">
+            <h2 class="loginh2">Signup</h2>
+            <input type="email" id="signup-email" placeholder="Email" required>
+            <input type="password" id="signup-password" placeholder="Password" required>
+            <button class="login" onclick="signup()">Signup</button>
+            <span>
+                if you are already Sign up! Please go to <a href="login.html">Login Page</a>
+            </span>
+        </div>
+    </div>
+    
+</body>
+<script>
+    function signup() {
+        const email = document.getElementById('signup-email');
+        const password = document.getElementById('signup-password');
+        console.log(typeof password.value)
+    
+        if (validateEmail(email.value) && password.value.length >= 6) {
+            let users = JSON.parse(localStorage.getItem('users')) || {};
+            if (users[email.value]) {
+                alert('Email already registered. Please login.');
+            } else {
+                users[email.value] = password.value;
+                localStorage.setItem('users', JSON.stringify(users));
+                alert('Signup successful! Please login.');
+                window.location.href="login.html"
+            }
+        } else {
+            alert('Invalid email format or password too short.');
+        }
+        email.value = ''
+        password.value = ''
+    }
+    function validateEmail(email) {
+        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+        return re.test(String(email).toLowerCase());
+    }
+    
+</script>
+</html>
